@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Confusion</title>
+        <meta charset="utf-8">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
+        <link type="text/css" rel="stylesheet" href="colorgame.css" >
+    </head>
+    <body>
+        <div id="wrapper" class="group">
+            <div id="colors" class="group">
+                <div class="red">Blue</div>
+                <div class="blue">Green</div>
+                <div class="purple">Pink</div>
+                <div class="green">Orange</div>
+                <div class="orange">Red</div>
+                <div class="pink">Purple</div>
+            </div>
+            <div id="instructions">Target:</div>
+            <div id="target" class="green">Red</div>
+            <div id="secondsLeft">15</div>
+            <div id="counter-correct">Correct answers: 0</div> 
+            <div id="hardMode">
+                <div id = hardModeBefore>Hard Mode:</div>
+                <div id="hardModeBox"></div>
+            </div>
+            <div id="tutorial" class="overlay">
+                <h2>Tutorial:</h2>
+                <h3>Click the button whose <span class="underline">COLOR</span> matches the target's <span class="underline">WORD</span>.</h3>     
+                <div class="blue exampleColor">Green</div>
+                <div class="popup">Nope, that one's <span class="underline">WORD</span> matches the target's <span class="underline">COLOR</span> . You want it the other way around! Keep trying :) </div>
+                <div class="purple exampleColor">Red</div>
+                <div class="popup">Nope, that one's <span class="underline">WORD</span> matches the target's <span class="underline">WORD</span>. You want its <span class="underline">COLOR</span> to match the target's <span class="underline">WORD</span>. Try again :)</div>
+                <div class="green exampleColor">Orange</div>
+                <div class="popup">Nope, that one's <span class="underline">COLOR</span> matches the target's <span class="underline">COLOR</span>. You want the one whose <span class="underline">COLOR</span> matches the target's <span class="underline">WORD</span>. Try again :) </div>
+                <div class="red exampleColor">Blue</div>
+                <div class="popup">Correct! That one's <span class="underline">COLOR</span> matches the target's <span class="underline">WORD</span>!</div>
+                <div id="instructionsExample">Target:</div>
+                <div id ="exampleTarget" class="green">Red</div>
+                <button>Ok, I've got it!</button>
+            </div>
+            <div id="end" class="overlay">
+                <h2>WHOOPS! You got that one wrong :(</h2>
+                <button>Try Again</button></div>
+            <div id="timeup" class="overlay">
+                <h2>TIME'S UP! You got some points!</h2>
+                <button>Retry!</button>
+            </div>
+        </div>
+        <script src="jquery-1.11.3.min.js"></script>
+        <script src="colorgame.js"></script>
+    </body>
