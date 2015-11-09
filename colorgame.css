@@ -43,7 +43,7 @@
 #tutorial{
     padding: 0 50px;
     background-color: #fff;
-    display:block;
+    opacity: 100;
 }
 
 .overlay span{
