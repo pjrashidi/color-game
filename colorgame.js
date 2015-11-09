@@ -90,6 +90,7 @@ function removeUsedValues(){
     textName.splice(textNameUsed, 1);
 }
 
+// start a new round - jsfriendly
 function newRound(){
     refreshArrays();
     setTargetWord();
@@ -111,6 +112,62 @@ function newRound(){
             createColorButtons();
             removeUsedValues();
         }
+    }
+}
+
+// Bring up time's up overlay and display points - js friendly
+function timeUp(){
+    var timeup = document.getElementById('timeup');
+    timeup.firstChild.innerHTML = "TIME'S UP! You got " + correctAnswers + " points!";
+    timeup.style.opacity = 100;
+}
+
+// reduce timer by 1 and trigger timeUp function when hitting 0 - js friendly
+function tick(){
+    secondsLeft -=1;
+    document.getElementById('secondsLeft').innerHTML = secondsLeft;
+    if(secondsLeft == 0){
+        timeUp();
+        clearInterval(timer);
+    }
+}
+
+// Start a new game, resets timer & score, sets tick function to go off every second -js friendly
+function newGame(){
+    clearInterval(timer);
+    correctAnswers = 0;
+    document.getElementById('counter-correct').innerHTML = 'Correct answers: ' + correctAnswers;
+    secondsLeft = 15;
+    document.getElementById('secondsLeft').innerHTML = secondsLeft;
+    timer = setInterval(tick, 1000);
+    newRound();
+}
+
+// Turns some text white for hard mode - js friendly
+function hardModeText(){
+    if(hardMode){
+        document.getElementById('instructions').style.color = 'white'
+        document.getElementById('counter-correct').style.color = 'white'
+        document.getElementById('hardModeBefore').style.color = 'white'
+        document.getElementById('hardModeBox').style.border = '5px solid white'
+    }else{
+        document.getElementById('instructions').style.color = 'black'
+        document.getElementById('counter-correct').style.color = 'black'
+        document.getElementById('hardModeBefore').style.color = 'black'
+        document.getElementById('hardModeBox').style.border = '5px solid black'
+    }
+}
+
+// Randomly changes background color for each round during hardmode - js friendly
+function hardModeBackground(){
+    if(hardMode){
+        getRandItemOf(colorNames);
+        document.getElementById('wrapper').style.backgroundColor = randItem
+        document.getElementById('secondsLeft').style.color = randItem
+    }
+    else{
+        document.getElementById('wrapper').style.backgroundColor = 'black'
+        document.getElementById('secondsLeft').style.color = 'black'
     }
 }
 
