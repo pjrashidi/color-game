@@ -171,5 +171,10 @@ function hardModeBackground(){
     }
 }
 
+var tutorialButton = document.getElementById('tutorial').lastChild;
+tutorialButton.addEventListener('click', function(){
+    console.log('button clicked');
+});
+
 //for testing, delete for proper usage
 refreshArrays();
