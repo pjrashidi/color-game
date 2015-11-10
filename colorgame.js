@@ -171,10 +171,20 @@ function hardModeBackground(){
     }
 }
 
-var tutorialButton = document.getElementById('tutorial').lastChild;
-tutorialButton.addEventListener('click', function(){
+// This specifically targets tutorial button, but it's not a good solution because it should be applied to all buttons - js friendly
+document.getElementById('tutorialButton').addEventListener('click', function(){
     console.log('button clicked');
+    document.getElementById('tutorial').style.opacity = '0';
+    newGame();
 });
+
+// Broken attempt to get all buttons to make their parent disappear
+document.getElementsByTagName('button').addEventListener('click', function(){
+    console.log('button clicked');
+    document.getElementsByTagName('button').parent.style.opacity = '0';
+    newGame();
+});
+
 
 //for testing, delete for proper usage
 refreshArrays();
